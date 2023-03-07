@@ -16,7 +16,9 @@ const pesquisarCEP = () => {
                 return endereco;
             })
             .then((endereco) => {
-                preencherFormulario(endereco)
+                endereco.erro
+                    ? limparDados()
+                    : preencherFormulario(endereco)
             })
     }
 }
@@ -49,7 +51,7 @@ const preencherFormulario = (endereco) => {
 
 const salvar = () => {
     const obj = mapOnSave();
- 
+
     alert(
         '\nNome: ' + obj.nome +
         '\nEmail: ' + obj.email +
@@ -61,7 +63,7 @@ const salvar = () => {
         '\nEstado: ' + obj.estado +
         '\nIBGE: ' + obj.ibge +
         '\nDDD: ' + obj.ddd +
-        '\nSiafi: ' + obj.siafi 
+        '\nSiafi: ' + obj.siafi
     );
 }
 
